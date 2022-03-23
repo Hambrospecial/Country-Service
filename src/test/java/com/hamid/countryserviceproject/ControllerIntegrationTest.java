@@ -1,6 +1,6 @@
 package com.hamid.countryserviceproject;
 
-import com.hamid.countryserviceproject.beans.Country;
+import com.hamid.countryserviceproject.models.Country;
 import org.json.JSONException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;

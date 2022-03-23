@@ -1,7 +1,7 @@
 package com.hamid.countryserviceproject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hamid.countryserviceproject.beans.Country;
+import com.hamid.countryserviceproject.models.Country;
 import com.hamid.countryserviceproject.controllers.CountryController;
 import com.hamid.countryserviceproject.services.CountryService;
 import org.junit.jupiter.api.*;

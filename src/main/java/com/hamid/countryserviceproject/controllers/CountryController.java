@@ -1,6 +1,6 @@
 package com.hamid.countryserviceproject.controllers;
 
-import com.hamid.countryserviceproject.beans.Country;
+import com.hamid.countryserviceproject.models.Country;
 import com.hamid.countryserviceproject.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
+@RequestMapping("/api/countries")
 public class CountryController {
 
     CountryService countryService;
@@ -20,7 +21,7 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping("/getcountries")
+    @GetMapping("/")
     public ResponseEntity<List<Country>> getCountries(){
         try {
             List<Country> countries = countryService.getAllCountries();
@@ -30,7 +31,7 @@ public class CountryController {
         }
     }
 
-    @GetMapping("/getcountries/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Country> getCountryById(@PathVariable(value = "id") int id){
         try {
             Country country = countryService.getCountryById(id);
@@ -41,17 +42,17 @@ public class CountryController {
 
     }
 
-    @GetMapping("/getcountries/countryName")
-    public ResponseEntity<Country> getCountryByName(@RequestParam(value = "name") String countryName){
+    @GetMapping("/name")
+    public ResponseEntity<Country> getCountryByName(@RequestParam String name){
         try {
-            Country country = countryService.getCountryByName(countryName);
+            Country country = countryService.getCountryByName(name);
             return new ResponseEntity<Country>(country, HttpStatus.FOUND);
         }catch (NoSuchElementException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @PostMapping("/addcountry")
+    @PostMapping()
     public ResponseEntity<Country> addCountry(@RequestBody Country country){
         try {
             country = countryService.addCountry(country);
@@ -61,7 +62,8 @@ public class CountryController {
         }
     }
 
-    @PutMapping("/updatecountry/{id}")
+
+    @PutMapping("/{id}")
     public ResponseEntity<Country> updateCountry(@PathVariable(value = "id") int id, @RequestBody Country country){
        try {
            Country existCountry = countryService.getCountryById(id);
@@ -76,7 +78,7 @@ public class CountryController {
 
     }
 
-    @DeleteMapping("/deletecountry/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Country> deleteCountry (@PathVariable(value = "id") int id){
         Country country = null;
         try {

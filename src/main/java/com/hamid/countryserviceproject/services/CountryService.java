@@ -1,13 +1,11 @@
 package com.hamid.countryserviceproject.services;
 
-import com.hamid.countryserviceproject.beans.Country;
-import com.hamid.countryserviceproject.controllers.AddResponse;
+import com.hamid.countryserviceproject.models.Country;
 import com.hamid.countryserviceproject.repositories.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Column;
 import java.util.List;
 
 @Component

@@ -1,6 +1,4 @@
-package com.hamid.countryserviceproject.beans;
-
-import org.hibernate.annotations.GeneratorType;
+package com.hamid.countryserviceproject.models;
 
 import javax.persistence.*;
 

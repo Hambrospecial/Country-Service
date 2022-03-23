@@ -1,13 +1,5 @@
 //package com.hamid.countryserviceproject.services;
 
-import com.hamid.countryserviceproject.beans.Country;
-import com.hamid.countryserviceproject.controllers.AddResponse;
-import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 //@Component
 //public class CountryService {
 
